@@ -13,7 +13,7 @@ export class ContentList {
     return this._content;
   }
 
-  // Adds an item to the lsit of content
+  // Adds an item to the list of content
   public add(item: Content) {
     this._content.push(item);
   }
