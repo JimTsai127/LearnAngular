@@ -19,16 +19,22 @@ export class AppComponent {
 
     let contentItem: MarvelHero = {
       id: 0,
-      name: "Iron Man",
+      name: "Spiderman",
       imageURL: "https://angular.io/assets/images/logos/angular/angular.png",
-      description: "We will miss him"
+      description: "Obviously the best Marvel hero"
     }
     this.processHero(contentItem);
 
     // ContentList.contentCount = 1;
     let list: ContentList;
     list = new ContentList(contentItem);
-    console.log("We changed the hero inside", list.items);
+    list.items = [{
+      id: 0,
+      name: "Ironman",
+      imageURL: "https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png",
+      description: "We will miss him"
+    }];
+    console.log("We changed the hero on the inside", list.items);
   }
 
   public processHero(hero: MarvelHero): void {

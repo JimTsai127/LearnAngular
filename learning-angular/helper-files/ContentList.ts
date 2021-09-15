@@ -2,8 +2,8 @@ import {MarvelHero} from "./MarvelHero";
 
 export class ContentList {
   static contentCount = 0;
-  // private _items: MarvelHero[];
-  _items: MarvelHero[];
+  private _items: MarvelHero[];
+  // _items: MarvelHero[];
   constructor(item: MarvelHero) {
     this._items = []; // initialize array
     this._items[0] = item;
@@ -13,7 +13,7 @@ export class ContentList {
     return this._items;
   }
   set items(newItems: MarvelHero[]) {
-    this._items.push(newItems);
+    this._items.push(newItems[0]);
   }
   public increaseCount() {
     return ++ContentList.contentCount;
