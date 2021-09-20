@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
-import { ContentList } from "./helper-files/content-list";
-import {Content} from "./helper-files/content-interface";
+import { Component, OnInit } from '@angular/core';
+import {Content} from "../helper-files/content-interface";
+import {ContentList} from "../helper-files/content-list";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './content-card/content-card.component.html',
-  styleUrls: ['./content-card/content-card.component.css']
+  selector: 'app-content-card',
+  templateUrl: './content-card.component.html',
+  styleUrls: ['./content-card.component.css']
 })
-export class AppComponent {
+export class ContentCardComponent implements OnInit {
   // New content list to store content
   contentList = new ContentList();
 
-  public ngOnInit(): void {
+  constructor() { }
+
+  ngOnInit(): void {
     // Create the contents
     let contentItem1: Content = {
       id: 0,
@@ -46,8 +48,5 @@ export class AppComponent {
     this.contentList.add(contentItem2);
     this.contentList.add(contentItem3);
   }
+
 }
-
-
-
-
