@@ -10,6 +10,9 @@ import {Content} from "./helper-files/content-interface";
 export class AppComponent {
   // New content list to store content
   contentList = new ContentList();
+  content1 = "";
+  content2 = "";
+  content3 = "";
 
   public ngOnInit(): void {
     // Create the contents
@@ -20,7 +23,7 @@ export class AppComponent {
       type: "type1",
       title: "title1",
       body: "body1",
-      tags: ["tag1"]
+      tags: ["tag1", "tag2"]
     }
     let contentItem2: Content = {
       id: 1,
@@ -45,6 +48,10 @@ export class AppComponent {
     this.contentList.add(contentItem1);
     this.contentList.add(contentItem2);
     this.contentList.add(contentItem3);
+
+    this.content1 = this.contentList.formatted(0);
+    this.content2 = this.contentList.formatted(1);
+    this.content3 = this.contentList.formatted(2);
   }
 }
 

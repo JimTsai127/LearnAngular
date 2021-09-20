@@ -35,13 +35,22 @@ export class ContentList {
       let body = "Body: " + this._content[index].body;
       let tags = "Tags: " + this._content[index].tags;
 
-      return "<span [innerHTML]='id'></span>" +
-        "<span [innerHTML]='author'></span>" +
-        "<span [innerHTML]='imgUrl'></span>" +
-        "<span [innerHTML]='type'></span>" +
-        "<span [innerHTML]='title'></span>" +
-        "<span [innerHTML]='body'></span>" +
-        "<span [innerHTML]='tags'></span>"
+      // return "<span [innerHTML]='id'></span>" +
+      //   "<span [innerHTML]='author'></span>" +
+      //   "<span [innerHTML]='imgUrl'></span>" +
+      //   "<span [innerHTML]='type'></span>" +
+      //   "<span [innerHTML]='title'></span>" +
+      //   "<span [innerHTML]='body'></span>" +
+      //   "<span [innerHTML]='tags'></span>"
+
+      return "<p>" + id + "<br>" +
+        author + "<br>" +
+        imgUrl + "<br>" +
+        type + "<br>" +
+        title + "<br>" +
+        body + "<br>" +
+        tags + "<br></p>"
+
     } else {
       return "<p>Error: Content index not found.</p>"
     }
