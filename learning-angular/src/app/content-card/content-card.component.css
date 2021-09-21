@@ -1,0 +1,25 @@
+.host {
+  background-color: red;
+  display: block;
+  width: 300px;
+  height: 250px;
+  border: 1px solid black;
+}
+
+.host.is-first {
+  background-color: blue;
+}
+
+.name {
+  font-weight: bold;
+  text-align: center;
+}
+
+.description {
+
+}
+
+.poster-image {
+  height: 200px;
+  width: 100px;
+}

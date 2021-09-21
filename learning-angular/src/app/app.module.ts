@@ -13,6 +13,6 @@ import { ContentCardComponent } from './content-card/content-card.component';
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, ContentCardComponent]
 })
 export class AppModule { }
