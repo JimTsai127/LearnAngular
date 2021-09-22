@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Content} from "../helper-files/content-interface";
-import {ContentList} from "../helper-files/content-list";
 
 @Component({
   selector: 'app-content-card',
@@ -8,8 +7,7 @@ import {ContentList} from "../helper-files/content-list";
   styleUrls: ['./content-card.component.css']
 })
 export class ContentCardComponent implements OnInit {
-  // New content list to store content
-  public contentList: ContentList;
+  @Input() content: any;
   // Create the contents
   newContent = {
     id: 0,
@@ -20,7 +18,7 @@ export class ContentCardComponent implements OnInit {
     body: "A legendary song with too many solos",
     tags: ["gh3", "double solos", "epic"]
   }
-  newContent1: Content = {
+  newContent1 = {
     id: 1,
     author: "metallica",
     imgUrl: "",
@@ -29,7 +27,7 @@ export class ContentCardComponent implements OnInit {
     body: "placeholder",
     tags: ["good"]
   }
-  newContent2: Content = {
+  newContent2 = {
     id: 2,
     author: 'Ed Sheeran',
     imgUrl: "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png",
@@ -40,10 +38,6 @@ export class ContentCardComponent implements OnInit {
   }
 
   constructor() {
-    this.contentList = new ContentList();
-    this.contentList.add(this.newContent);
-    this.contentList.add(this.newContent1);
-    this.contentList.add(this.newContent2);
   }
 
   ngOnInit(): void {

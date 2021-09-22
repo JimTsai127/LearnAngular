@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { ContentList } from "./helper-files/content-list";
-import {Content} from "./helper-files/content-interface";
 
 @Component({
   selector: 'app-root',
