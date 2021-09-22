@@ -14,12 +14,12 @@ export class ContentList {
   }
 
   // Adds an item to the list of content
-  public add(item: Content) {
+  add(item: Content): void {
     this._content.push(item);
   }
 
   // Counts the number of items in content
-  public count(): number {
+  count(): number {
     return this._content.length;
   }
 
@@ -27,32 +27,35 @@ export class ContentList {
   public formatted(index: number): string {
     // Check for valid index
     if(index > -1 && index < this._content.length) {
-      let id = "ID: " + this._content[index].id;
-      let author = "Author: " + this._content[index].author;
-      let imgUrl = "Image: " + this._content[index].imgUrl;
-      let type = "Type: " + this._content[index].type;
-      let title = "Title: " + this._content[index].title;
-      let body = "Body: " + this._content[index].body;
-      let tags = "Tags: " + this._content[index].tags;
+      let id = "<div>ID: " + this._content[index].id + "</div>";
+      let author = "<div>Author: " + this._content[index].author + "</div>";
+      let title = "<div>Title: " + this._content[index].title + "</div>";
+      let body = "<div>Body: " + this._content[index].body + "</div>";
+      let imgUrl = ""
+      let type = "";
+      let tags = "";
+      if(this._content[index].imgUrl) {
+        imgUrl = "<div><img src='" + this._content[index].imgUrl + "'></div>";
+      }
+      if(this._content[index].type) {
+        type = "<div>" + this._content[index].type + "</div>";
+      }
+      if(this._content[index].tags) {
+        // for(let i=0; i < this._content[index].tags.length; i++) {
+          tags = "<div>" + this._content[index].tags + "</div>";
+        // }
+      }
 
-      // return "<span [innerHTML]='id'></span>" +
-      //   "<span [innerHTML]='author'></span>" +
-      //   "<span [innerHTML]='imgUrl'></span>" +
-      //   "<span [innerHTML]='type'></span>" +
-      //   "<span [innerHTML]='title'></span>" +
-      //   "<span [innerHTML]='body'></span>" +
-      //   "<span [innerHTML]='tags'></span>"
-
-      return "<p>" + id + "<br>" +
+      return id + "<br>" +
         author + "<br>" +
         imgUrl + "<br>" +
         type + "<br>" +
         title + "<br>" +
         body + "<br>" +
-        tags + "<br></p>"
+        tags + "<br>"
 
     } else {
-      return "<p>Error: Content index not found.</p>"
+      return "<div>Error: Content index not found.</div>"
     }
   }
 }

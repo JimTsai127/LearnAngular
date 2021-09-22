@@ -9,51 +9,44 @@ import {ContentList} from "../helper-files/content-list";
 })
 export class ContentCardComponent implements OnInit {
   // New content list to store content
-  contentList = new ContentList();
-  content1 = "";
-  content2 = "";
-  content3 = "";
+  public contentList: ContentList;
+  // Create the contents
+  newContent = {
+    id: 0,
+    author: 'Dragon Force',
+    imgUrl: "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png",
+    type: "power metal",
+    title: "Through the Fire and the Flames",
+    body: "A legendary song with too many solos",
+    tags: ["gh3", "double solos", "epic"]
+  }
+  newContent1: Content = {
+    id: 1,
+    author: "metallica",
+    imgUrl: "",
+    type: "something",
+    title: "Enter the Sandman",
+    body: "placeholder",
+    tags: ["good"]
+  }
+  newContent2: Content = {
+    id: 2,
+    author: 'Ed Sheeran',
+    imgUrl: "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png",
+    type: "type3",
+    title: "title3",
+    body: "body3",
+    tags: ["tag3"]
+  }
 
-  constructor() { }
+  constructor() {
+    this.contentList = new ContentList();
+    this.contentList.add(this.newContent);
+    this.contentList.add(this.newContent1);
+    this.contentList.add(this.newContent2);
+  }
 
   ngOnInit(): void {
-    // Create the contents
-    let contentItem1: Content = {
-      id: 0,
-      author: 'Hung-Yu Tsai',
-      imgUrl: "www.google.com",
-      type: "type1",
-      title: "title1",
-      body: "body1",
-      tags: ["tag1", "tag2"]
-    }
-    let contentItem2: Content = {
-      id: 1,
-      author: 'Hung-Yu Tsai',
-      imgUrl: "www.google.com",
-      type: "type2",
-      title: "title2",
-      body: "body2",
-      tags: ["tag2"]
-    }
-    let contentItem3: Content = {
-      id: 2,
-      author: 'Hung-Yu Tsai',
-      imgUrl: "www.google.com",
-      type: "type3",
-      title: "title3",
-      body: "body3",
-      tags: ["tag3"]
-    }
-
-    // Add the contents to the list
-    this.contentList.add(contentItem1);
-    this.contentList.add(contentItem2);
-    this.contentList.add(contentItem3);
-
-    this.content1 = this.contentList.formatted(0);
-    this.content2 = this.contentList.formatted(1);
-    this.content3 = this.contentList.formatted(2);
   }
 
 }
