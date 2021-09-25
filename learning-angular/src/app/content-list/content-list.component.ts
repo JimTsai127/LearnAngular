@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Content } from "../helper-files/content-interface";
 
 @Component({
@@ -9,7 +9,6 @@ import { Content } from "../helper-files/content-interface";
 export class ContentListComponent implements OnInit {
   // Holds an array of content items
   contentArray: Content[];
-
 
   constructor() {
     this.contentArray = [{
