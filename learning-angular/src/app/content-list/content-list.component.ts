@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Content} from "../helper-files/content-interface";
+import {Component, Input, OnInit} from '@angular/core';
+import { Content } from "../helper-files/content-interface";
 
 @Component({
   selector: 'app-content-list',
@@ -7,10 +7,12 @@ import {Content} from "../helper-files/content-interface";
   styleUrls: ['./content-list.component.css']
 })
 export class ContentListComponent implements OnInit {
-  contentList: Content[];
+  // Holds an array of content items
+  contentArray: Content[];
+
 
   constructor() {
-    this.contentList = [{
+    this.contentArray = [{
       id: 0,
       author: 'Cornelia Funke',
       imgUrl: "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png",
