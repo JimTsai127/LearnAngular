@@ -15,6 +15,6 @@ import { ContentListComponent } from './content-list/content-list.component';
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent, ContentCardComponent, ContentListComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

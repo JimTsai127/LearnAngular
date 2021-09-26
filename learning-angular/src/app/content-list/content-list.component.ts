@@ -14,7 +14,7 @@ export class ContentListComponent implements OnInit {
     this.contentArray = [{
       id: 0,
       author: 'Cornelia Funke',
-      imgUrl: "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png",
+      imgUrl: "https://upload.wikimedia.org/wikipedia/en/6/60/Thieflordbookcover.jpg",
       type: "Paperback",
       title: "The Thief Lord",
       body: "A good book",
@@ -22,15 +22,15 @@ export class ContentListComponent implements OnInit {
     }, {
       id: 1,
       author: "J.K. Rowling",
-      imgUrl: "",
+      imgUrl: "https://upload.wikimedia.org/wikipedia/en/a/a9/Harry_Potter_and_the_Deathly_Hallows.jpg",
       type: "Hardcover",
       title: "Harry Potter and the Deathly Hallows",
-      body: "Sequel to the final book",
-      tags: ["fantasy", "Part 2"]
+      body: "Final book in the series",
+      tags: ["fantasy"]
     }, {
       id: 2,
       author: 'Lemony Snicket',
-      imgUrl: "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png",
+      imgUrl: "https://m.media-amazon.com/images/I/51-N9jjbuHL.jpg",
       type: "Hardcover",
       title: "The Series of Unfortunate Events 13",
       body: "Last known book",
@@ -38,7 +38,7 @@ export class ContentListComponent implements OnInit {
     }, {
       id: 3,
       author: 'Christopher Paolini',
-      imgUrl: "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png",
+      imgUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Eragon_book_cover.png/200px-Eragon_book_cover.png",
       type: "Paperback",
       title: "Eragon",
       body: "First book in the series",
@@ -46,7 +46,7 @@ export class ContentListComponent implements OnInit {
     }, {
       id: 4,
       author: "Cornelia Funke",
-      imgUrl: "",
+      imgUrl: "https://images-na.ssl-images-amazon.com/images/I/81ftas+eTwL.jpg",
       type: "Hardcover",
       title: "Inkspell",
       body: "Good book",

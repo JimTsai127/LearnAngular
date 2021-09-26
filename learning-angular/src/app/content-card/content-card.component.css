@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  border: 2px solid red;
+  float: left;
+}
+
+:host.is-Last {
+  border: 2px solid black;
+}
+
+.image {
+  max-height: 15em;
+  max-width: 15em;
+}
+
+.title {
+}
+
+.author {
+}
+
+.tags {
+
+}
+
+.body {
+
+}
+
+.type {
+
+}
