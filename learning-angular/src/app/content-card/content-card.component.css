@@ -2,9 +2,10 @@
   display: block;
   border: 2px solid red;
   float: left;
+  min-height: 500px;
 }
 
-:host.is-Last {
+:host.is-last {
   border: 2px solid black;
 }
 
@@ -13,20 +14,16 @@
   max-width: 15em;
 }
 
-.title {
+.imageDiv {
+  text-align: center;
+  padding: 0.5em 1em 0.5em 1em;
 }
 
-.author {
+.title, .author, .tags, .body, .type {
+  text-align: center;
+  padding: 0.5em 0.2em 0.5em 0.2em;
 }
 
-.tags {
-
-}
-
-.body {
-
-}
-
-.type {
-
+.title, .author {
+  font-weight: bold;
 }

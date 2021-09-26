@@ -30,7 +30,6 @@ export class ContentListComponent implements OnInit {
     }, {
       id: 2,
       author: 'Lemony Snicket',
-      imgUrl: "https://m.media-amazon.com/images/I/51-N9jjbuHL.jpg",
       type: "Hardcover",
       title: "The Series of Unfortunate Events 13",
       body: "Last known book",
@@ -51,10 +50,14 @@ export class ContentListComponent implements OnInit {
       title: "Inkspell",
       body: "Good book",
       tags: ["fantasy", "magic"]
+    }, {
+      id: 5,
+      author: "Unknown",
+      title: "Test Book",
+      body: "No image, tags or type",
     }];
   }
 
   ngOnInit(): void {
   }
-
 }

@@ -1,6 +1,6 @@
-<div class="title">{{ content.title }}</div>
-<div class="author">{{ content.author }}</div>
-<div class="tags">{{ content.tags }}</div>
-<img class="image" [src]="content.imgUrl">
-<div class="body">{{ content.body }}</div>
-<div class="type">{{ content.type }}</div>
+<div class="title" *ngIf="content.title">{{ content.title }}</div>
+<div class="author" *ngIf="content.author">By: {{ content.author }}</div>
+<div class="tags" *ngIf="content.tags">Genres: {{ content.tags }}</div>
+<div class="imageDiv" *ngIf="content.imgUrl"><img class="image" [src]="content.imgUrl" (click)="onImageClick()"></div>
+<div class="body" *ngIf="content.body">Summary: {{ content.body }}</div>
+<div class="type" *ngIf="content.type">Type: {{ content.type }}</div>
