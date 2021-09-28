@@ -1,11 +1,7 @@
-<img class="poster-image" [src]="content.imageURL">
+<img class="poster-image" [src]="content.imgURL">
 <div class="name">
-  {{ content.name }}
+  {{ content.title | defaultType: "nothing to see" }}
 </div>
 <div class="description">
-  {{ content.description }}
+  {{ content.body }}
 </div>
-
-<span [innerHTML]="content1"></span>
-<span [innerHTML]="content2"></span>
-<span [innerHTML]="content3"></span>
