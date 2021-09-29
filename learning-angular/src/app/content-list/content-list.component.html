@@ -1,2 +1,6 @@
 <app-content-card *ngFor="let book of contentArray; let isLast = last"
                   [class.is-last]="isLast" [content]="book"></app-content-card>
+<!--
+Same:
+let last as isLast
+-->
