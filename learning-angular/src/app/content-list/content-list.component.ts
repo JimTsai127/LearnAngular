@@ -18,7 +18,8 @@ export class ContentListComponent implements OnInit {
       type: "Paperback",
       title: "The Thief Lord",
       body: "A good book",
-      tags: ["fantasy", "young adult"]
+      tags: ["fantasy", "young adult"],
+      copies: 0
     }, {
       id: 1,
       author: "J.K. Rowling",
@@ -26,14 +27,16 @@ export class ContentListComponent implements OnInit {
       type: "Hardcover",
       title: "Harry Potter and the Deathly Hallows",
       body: "Final book in the series",
-      tags: ["fantasy"]
+      tags: ["fantasy"],
+      copies: 300
     }, {
       id: 2,
       author: 'Lemony Snicket',
       type: "Hardcover",
       title: "The Series of Unfortunate Events 13",
       body: "Last known book",
-      tags: ["psychological"]
+      tags: ["psychological"],
+      copies: 200
     }, {
       id: 3,
       author: 'Christopher Paolini',
@@ -41,7 +44,8 @@ export class ContentListComponent implements OnInit {
       type: "Paperback",
       title: "Eragon",
       body: "First book in the series",
-      tags: ["fantasy"]
+      tags: ["fantasy"],
+      copies: 100
     }, {
       id: 4,
       author: "Cornelia Funke",
@@ -49,12 +53,14 @@ export class ContentListComponent implements OnInit {
       type: "Hardcover",
       title: "Inkspell",
       body: "Good book",
-      tags: ["fantasy", "magic"]
+      tags: ["fantasy", "magic"],
+      copies: 300
     }, {
       id: 5,
       author: "Unknown",
       title: "Test Book",
       body: "No image, tags or type",
+      copies: 250
     }];
   }
 

@@ -1,6 +1,5 @@
-<app-content-card *ngFor="let book of contentArray; let isLast = last"
-                  [class.is-last]="isLast" [content]="book"></app-content-card>
-<!--
-Same:
-let last as isLast
--->
+<app-content-card *ngFor="let hardcover of (contentArray | matchesString: 'Hardcover');"
+                  [class.hardcover]="hardcover" [content]="hardcover"></app-content-card>
+<app-content-card *ngFor="let paperback of (contentArray | matchesString: 'Paperback');"
+                  [class.paperback]="paperback" [content]="paperback"></app-content-card>
+

@@ -5,8 +5,12 @@
   min-height: 500px;
 }
 
-:host.is-last {
-  border: 2px solid black;
+:host.hardcover {
+  border: 2px solid green;
+}
+
+:host.paperback {
+  border: 2px solid red;
 }
 
 .image {
