@@ -22,6 +22,7 @@ export class ContentListComponent implements OnInit {
       title: "The Thief Lord",
       body: "A good book",
       tags: ["fantasy", "young adult"],
+      wasSelected: false
     }, {
       id: 1,
       author: "J.K. Rowling",
@@ -30,6 +31,7 @@ export class ContentListComponent implements OnInit {
       title: "Harry Potter and the Deathly Hallows",
       body: "Final book in the series",
       tags: ["fantasy"],
+      wasSelected: false
     }, {
       id: 2,
       author: 'Lemony Snicket',
@@ -37,6 +39,7 @@ export class ContentListComponent implements OnInit {
       title: "The Series of Unfortunate Events 13",
       body: "Last known book",
       tags: ["psychological"],
+      wasSelected: false
     }, {
       id: 3,
       author: 'Christopher Paolini',
@@ -45,6 +48,7 @@ export class ContentListComponent implements OnInit {
       title: "Eragon",
       body: "First book in the series",
       tags: ["fantasy"],
+      wasSelected: false
     }, {
       id: 4,
       author: "Cornelia Funke",
@@ -53,22 +57,33 @@ export class ContentListComponent implements OnInit {
       title: "Inkspell",
       body: "Good book",
       tags: ["fantasy", "magic"],
+      wasSelected: false
     }, {
       id: 5,
       author: "Unknown",
       title: "Test Book",
       body: "No image, tags or type",
+      wasSelected: false
     }];
   }
 
   ngOnInit(): void {
   }
 
+  // Deselect all highlighted content on the page
+  clearSelections(): void {
+    for(let i = 0; i < this.contentArray.length; i++) {
+      this.contentArray[i].wasSelected = false;
+    }
+  }
+
   // When user requests to find a book, highlight the book and show a message
   onFindItem(): void {
-    // Case where book exists
-    if (this.contentArray.find(book => book.title.toLowerCase() === this.item.toLowerCase().trim())) {
+    let bookMatch = this.contentArray.find(book => book.title.toLowerCase() === this.item.toLowerCase().trim())
+    if (bookMatch) { // Case where book exists
       alert("Good news, the book called " + '"' + this.item + '"' + " has been found")
+      bookMatch.wasSelected = true;
+      // this.contentArray = [...this.contentArray]; // Hack to refresh the array contents on the page
     } else { // Case where book does not exist
       alert("Sorry, the book called " + '"' + this.item + '"' + " could not be found");
     }

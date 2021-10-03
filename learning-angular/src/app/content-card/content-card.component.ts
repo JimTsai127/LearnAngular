@@ -7,11 +7,11 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ContentCardComponent implements OnInit {
   @Input() content: any; // Content card holds the content
-
+  @Input() bookWasFound: boolean; // If book was found
 
   constructor() {
     this.content = {};
-
+    this.bookWasFound = false;
   }
 
   ngOnInit(): void {

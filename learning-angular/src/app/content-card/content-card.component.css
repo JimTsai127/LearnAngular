@@ -3,6 +3,7 @@
   border: 2px solid red;
   float: left;
   min-height: 500px;
+  background-color: aquamarine;
 }
 
 :host.hardcover {
@@ -30,4 +31,9 @@
 
 .title, .author {
   font-weight: bold;
+}
+
+.selected {
+  background-color: bisque;
+  border: 2px solid black;
 }

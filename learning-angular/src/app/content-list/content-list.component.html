@@ -1,12 +1,12 @@
 <div class="itemFinder">
   Title: <input [(ngModel)]="item">
   <br>
-  <button (click)="onFindItem()">
+  <button (click)="clearSelections(); onFindItem()">
     Search for Book
   </button>
 </div>
 <app-content-card *ngFor="let hardcover of (contentArray | matchesString: 'Hardcover');"
-                  [class.hardcover]="hardcover" [content]="hardcover"></app-content-card>
+                  [class.hardcover]="hardcover" [content]="hardcover" [bookWasFound]="hardcover.wasSelected"></app-content-card>
 <app-content-card *ngFor="let paperback of (contentArray | matchesString: 'Paperback');"
-                  [class.paperback]="paperback" [content]="paperback"></app-content-card>
+                  [class.paperback]="paperback" [content]="paperback" [bookWasFound]="paperback.wasSelected"></app-content-card>
 
