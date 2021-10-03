@@ -7,10 +7,13 @@ import { Content } from "../helper-files/content-interface";
   styleUrls: ['./content-list.component.css']
 })
 export class ContentListComponent implements OnInit {
-  // Holds an array of content items
-  contentArray: Content[];
+  contentArray: Content[]; // Holds an array of content items
+  public item: any; // Stores the user's search item
 
   constructor() {
+    this.item = "";
+
+    // List of books
     this.contentArray = [{
       id: 0,
       author: 'Cornelia Funke',
@@ -19,7 +22,6 @@ export class ContentListComponent implements OnInit {
       title: "The Thief Lord",
       body: "A good book",
       tags: ["fantasy", "young adult"],
-      copies: 0
     }, {
       id: 1,
       author: "J.K. Rowling",
@@ -28,7 +30,6 @@ export class ContentListComponent implements OnInit {
       title: "Harry Potter and the Deathly Hallows",
       body: "Final book in the series",
       tags: ["fantasy"],
-      copies: 300
     }, {
       id: 2,
       author: 'Lemony Snicket',
@@ -36,7 +37,6 @@ export class ContentListComponent implements OnInit {
       title: "The Series of Unfortunate Events 13",
       body: "Last known book",
       tags: ["psychological"],
-      copies: 200
     }, {
       id: 3,
       author: 'Christopher Paolini',
@@ -45,7 +45,6 @@ export class ContentListComponent implements OnInit {
       title: "Eragon",
       body: "First book in the series",
       tags: ["fantasy"],
-      copies: 100
     }, {
       id: 4,
       author: "Cornelia Funke",
@@ -54,16 +53,24 @@ export class ContentListComponent implements OnInit {
       title: "Inkspell",
       body: "Good book",
       tags: ["fantasy", "magic"],
-      copies: 300
     }, {
       id: 5,
       author: "Unknown",
       title: "Test Book",
       body: "No image, tags or type",
-      copies: 250
     }];
   }
 
   ngOnInit(): void {
+  }
+
+  // When user requests to find a book, highlight the book and show a message
+  onFindItem(): void {
+    // Case where book exists
+    if (this.contentArray.find(book => book.title.toLowerCase() === this.item.toLowerCase().trim())) {
+      alert("Good news, the book called " + '"' + this.item + '"' + " has been found")
+    } else { // Case where book does not exist
+      alert("Sorry, the book called " + '"' + this.item + '"' + " could not be found");
+    }
   }
 }

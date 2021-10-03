@@ -6,11 +6,12 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./content-card.component.css']
 })
 export class ContentCardComponent implements OnInit {
-  // Content card holds the content
-  @Input() content: any;
+  @Input() content: any; // Content card holds the content
+
 
   constructor() {
     this.content = {};
+
   }
 
   ngOnInit(): void {
