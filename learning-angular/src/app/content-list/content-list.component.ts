@@ -61,8 +61,9 @@ export class ContentListComponent implements OnInit {
     }, {
       id: 5,
       author: "Unknown",
-      title: "Test Book",
-      body: "No image, tags or type",
+      type: "Hardcover",
+      title: "Inkspell",
+      body: "Duplicate",
       wasSelected: false
     }];
   }
@@ -79,10 +80,13 @@ export class ContentListComponent implements OnInit {
 
   // When user requests to find a book, highlight the book and show a message
   onFindItem(): void {
-    let bookMatch = this.contentArray.find(book => book.title.toLowerCase() === this.item.toLowerCase().trim())
-    if (bookMatch) { // Case where book exists
+    // Find all the matching books
+    let bookMatches = this.contentArray.filter(book => book.title.toLowerCase() === this.item.toLowerCase().trim())
+    if (bookMatches) { // Case where book(s) exists
       alert("Good news, the book called " + '"' + this.item + '"' + " has been found")
-      bookMatch.wasSelected = true;
+      for (let i = 0; i < bookMatches.length; i++) {
+        bookMatches[i].wasSelected = true;
+      }
       // this.contentArray = [...this.contentArray]; // Hack to refresh the array contents on the page
     } else { // Case where book does not exist
       alert("Sorry, the book called " + '"' + this.item + '"' + " could not be found");
