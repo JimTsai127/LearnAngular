@@ -81,15 +81,20 @@ export class ContentListComponent implements OnInit {
   // When user requests to find a book, highlight the book and show a message
   onFindItem(): void {
     // Find all the matching books
-    let bookMatches = this.contentArray.filter(book => book.title.toLowerCase() === this.item.toLowerCase().trim())
-    if (bookMatches) { // Case where book(s) exists
-      alert("Good news, the book called " + '"' + this.item + '"' + " has been found")
-      for (let i = 0; i < bookMatches.length; i++) {
-        bookMatches[i].wasSelected = true;
+    if (this.item.toLowerCase().trim().length > 0) { // No empty strings allowed
+      let bookMatches = this.contentArray.filter(book => book.title.toLowerCase().includes(this.item.toLowerCase().trim()))
+      if (bookMatches.length > 0) { // Case where book(s) exists
+        alert("Good news, book(s) containing " + '"' + this.item + '"' + " have been found")
+        for (let i = 0; i < bookMatches.length; i++) {
+          bookMatches[i].wasSelected = true;
+        }
+        // this.contentArray = [...this.contentArray]; // Hack to refresh the array contents on the page
+      } else { // Case where book does not exist
+        alert("Sorry, no book containing " + '"' + this.item + '"' + " could be found");
       }
-      // this.contentArray = [...this.contentArray]; // Hack to refresh the array contents on the page
     } else { // Case where book does not exist
-      alert("Sorry, the book called " + '"' + this.item + '"' + " could not be found");
+      alert("Please enter a book title");
     }
+
   }
 }
