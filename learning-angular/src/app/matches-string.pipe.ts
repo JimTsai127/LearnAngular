@@ -8,6 +8,6 @@ export class MatchesStringPipe implements PipeTransform {
 
   transform(contentList: Content[], matchString: string): Content[] {
       // Return a list of contents that matches the given string
-      return contentList.filter(c => (c.type != null && c.type === matchString) ? c : null);
+      return contentList.filter(c => c.type === matchString);
   }
 }

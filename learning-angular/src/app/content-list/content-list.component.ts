@@ -21,8 +21,7 @@ export class ContentListComponent implements OnInit {
       type: "Paperback",
       title: "The Thief Lord",
       body: "A good book",
-      tags: ["fantasy", "young adult"],
-      wasSelected: false
+      tags: ["fantasy", "young adult"]
     }, {
       id: 1,
       author: "J.K. Rowling",
@@ -30,16 +29,14 @@ export class ContentListComponent implements OnInit {
       type: "Hardcover",
       title: "Harry Potter and the Deathly Hallows",
       body: "Final book in the series",
-      tags: ["fantasy"],
-      wasSelected: false
+      tags: ["fantasy"]
     }, {
       id: 2,
       author: 'Lemony Snicket',
       type: "Hardcover",
       title: "The Series of Unfortunate Events 13",
       body: "Last known book",
-      tags: ["psychological"],
-      wasSelected: false
+      tags: ["psychological"]
     }, {
       id: 3,
       author: 'Christopher Paolini',
@@ -47,8 +44,7 @@ export class ContentListComponent implements OnInit {
       type: "Paperback",
       title: "Eragon",
       body: "First book in the series",
-      tags: ["fantasy"],
-      wasSelected: false
+      tags: ["fantasy"]
     }, {
       id: 4,
       author: "Cornelia Funke",
@@ -56,26 +52,17 @@ export class ContentListComponent implements OnInit {
       type: "Hardcover",
       title: "Inkspell",
       body: "Good book",
-      tags: ["fantasy", "magic"],
-      wasSelected: false
+      tags: ["fantasy", "magic"]
     }, {
       id: 5,
       author: "Unknown",
       type: "Hardcover",
       title: "Inkspell",
-      body: "Duplicate",
-      wasSelected: false
+      body: "Duplicate"
     }];
   }
 
   ngOnInit(): void {
-  }
-
-  // Deselect all highlighted content on the page
-  clearSelections(): void {
-    for(let i = 0; i < this.contentArray.length; i++) {
-      this.contentArray[i].wasSelected = false;
-    }
   }
 
   // When user requests to find a book, highlight the book and show a message
@@ -85,16 +72,9 @@ export class ContentListComponent implements OnInit {
       let bookMatches = this.contentArray.filter(book => book.title.toLowerCase().includes(this.item.toLowerCase().trim()))
       if (bookMatches.length > 0) { // Case where book(s) exists
         alert("Good news, book(s) containing " + '"' + this.item + '"' + " have been found")
-        for (let i = 0; i < bookMatches.length; i++) {
-          bookMatches[i].wasSelected = true;
-        }
-        // this.contentArray = [...this.contentArray]; // Hack to refresh the array contents on the page
       } else { // Case where book does not exist
         alert("Sorry, no book containing " + '"' + this.item + '"' + " could be found");
       }
-    } else { // Case where book does not exist
-      alert("Please enter a book title");
     }
-
   }
 }

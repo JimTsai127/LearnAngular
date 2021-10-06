@@ -14,6 +14,11 @@
   border: 2px solid red;
 }
 
+:host.selected {
+  background-color: bisque;
+  border: 2px solid black;
+}
+
 .image {
   max-height: 15em;
   max-width: 15em;
@@ -31,9 +36,4 @@
 
 .title, .author {
   font-weight: bold;
-}
-
-.selected {
-  background-color: bisque;
-  border: 2px solid black;
 }
