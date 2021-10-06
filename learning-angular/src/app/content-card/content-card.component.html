@@ -8,7 +8,14 @@
       {{ tag }}
     </div>
   </div>
-  <div class="imageDiv" *ngIf="content.imgUrl"><img class="image" [src]="content.imgUrl" (click)="onImageClick()"></div>
+  <div class="imageDiv" [ngSwitch]="content.imgUrl != null">
+    <span *ngSwitchCase='true'>
+      <img class="image" [src]="content.imgUrl" (click)="onImageClick()">
+    </span>
+    <span *ngSwitchCase='false'>
+      <img class="image" [src]='"https://cdn-icons-png.flaticon.com/128/166/166088.png"' (click)="onImageClick()">
+    </span>
+  </div>
   <div class="body">Summary: {{ content.body }}</div>
   <div class="type" *ngIf="content.type">Type: {{ content.type }}</div>
 </div>
