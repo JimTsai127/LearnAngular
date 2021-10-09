@@ -1,21 +1,19 @@
-<!-- Changes class name based on whether a book was found or not -->
-<div [ngClass]="{'notSelected': !bookWasFound, 'selected': bookWasFound}">
-  <div class="title" appHoverStyle hstyle='underline'>{{ content.title }}</div>
-  <div class="author">By: {{ content.author }}</div>
-  <div class="tags" *ngIf="content.tags">
-    Genres:
-    <div class="tag" *ngFor="let tag of content.tags;" appHoverStyle hstyle='bold'>
-      {{ tag }}
-    </div>
+<div class="title" appHoverStyle hstyle='underline'>{{ content.title }}</div>
+<div class="author">By: {{ content.author }}</div>
+<div class="tags" *ngIf="content.tags">
+  Genres:
+  <div class="tag" *ngFor="let tag of content.tags;" appHoverStyle hstyle='bold'>
+    {{ tag }}
   </div>
-  <div class="imageDiv" [ngSwitch]="content.imgUrl != null">
-    <span *ngSwitchCase='true'>
-      <img class="image" [src]="content.imgUrl" (click)="onImageClick()">
-    </span>
-    <span *ngSwitchCase='false'>
-      <img class="image" [src]='"https://cdn-icons-png.flaticon.com/128/166/166088.png"' (click)="onImageClick()">
-    </span>
-  </div>
-  <div class="body">Summary: {{ content.body }}</div>
-  <div class="type" *ngIf="content.type">Type: {{ content.type }}</div>
 </div>
+<div class="imageDiv" [ngSwitch]="content.imgUrl != null">
+  <span *ngSwitchCase='true'>
+    <img class="image" [src]="content.imgUrl" (click)="onImageClick()">
+  </span>
+  <span *ngSwitchCase='false'>
+    <img class="image" [src]='"https://cdn-icons-png.flaticon.com/128/166/166088.png"' (click)="onImageClick()">
+  </span>
+</div>
+<div class="body">Summary: {{ content.body }}</div>
+<div class="type" *ngIf="content.type">Type: {{ content.type }}</div>
+
