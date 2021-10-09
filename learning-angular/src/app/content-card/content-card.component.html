@@ -1,10 +1,10 @@
 <!-- Changes class name based on whether a book was found or not -->
 <div [ngClass]="{'notSelected': !bookWasFound, 'selected': bookWasFound}">
-  <div class="title">{{ content.title }}</div>
+  <div class="title" appHoverStyle hstyle='underline'>{{ content.title }}</div>
   <div class="author">By: {{ content.author }}</div>
   <div class="tags" *ngIf="content.tags">
     Genres:
-    <div class="tag" *ngFor="let tag of content.tags;">
+    <div class="tag" *ngFor="let tag of content.tags;" appHoverStyle hstyle='bold'>
       {{ tag }}
     </div>
   </div>
