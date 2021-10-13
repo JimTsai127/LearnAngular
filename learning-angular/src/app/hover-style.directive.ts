@@ -24,7 +24,7 @@ export class HoverStyleDirective {
   formatText(style: string, state: boolean): void {
     switch(style) {
       case "underline":
-        this.ele.nativeElement.style.textDecoration = state ? "underline" : "none";
+        this.ele.nativeElement.style.textDecoration = state ? "underline" : "initial";
         break;
       case "bold":
         this.ele.nativeElement.style.fontWeight = state ? "bold" : "normal";

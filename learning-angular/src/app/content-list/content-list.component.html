@@ -26,3 +26,14 @@
                   [class.selected]="this.item.toLowerCase().trim().length > 0 &&
                   paperback.title.toLowerCase() === this.item.toLowerCase().trim()">
 </app-content-card>
+
+<!--<app-content-card *ngFor="let hardcover of contentArray | matchesString: 'Hardcover'; first as isFirst; last as isLast;"-->
+<!--                  [class.hardcover]="hardcover" [content]="hardcover" appBorderHoverStyle [borderVisible]="isFirst || isLast"-->
+<!--                  [class.selected]="this.item.toLowerCase().trim().length > 0 &&-->
+<!--                  hardcover.title.toLowerCase() === this.item.toLowerCase().trim()">-->
+<!--</app-content-card>-->
+<!--<app-content-card *ngFor="let paperback of contentArray | matchesString: 'Paperback'; first as isFirst; last as isLast;"-->
+<!--                  [class.paperback]="paperback" [content]="paperback" appBorderHoverStyle [borderVisible]="isFirst || isLast"-->
+<!--                  [class.selected]="this.item.toLowerCase().trim().length > 0 &&-->
+<!--                  paperback.title.toLowerCase() === this.item.toLowerCase().trim()">-->
+<!--</app-content-card>-->
