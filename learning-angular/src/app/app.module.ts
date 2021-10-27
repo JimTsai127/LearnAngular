@@ -8,6 +8,7 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { MatchesStringPipe } from './matches-string.pipe';
 import { HoverStyleDirective } from './hover-style.directive';
 import { BorderHoverStyleDirective } from './border-hover-style.directive';
+import { CreateContentComponent } from './create-content/create-content.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BorderHoverStyleDirective } from './border-hover-style.directive';
     ContentListComponent,
     MatchesStringPipe,
     HoverStyleDirective,
-    BorderHoverStyleDirective
+    BorderHoverStyleDirective,
+    CreateContentComponent
   ],
   imports: [
     BrowserModule,

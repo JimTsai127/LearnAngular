@@ -1,0 +1,12 @@
+<div class="idEntry">Id: <input #bId></div>
+<div class="authorEntry">Author: <input #bAuthor></div>
+<div class="imgUrlEntry">Image URL: <input #bImgUrl></div>
+<div class="typeEntry">Type: <input #bType></div>
+<div class="titleEntry">Title: <input #bTitle></div>
+<div class="bodyEntry">Description: <input #bBody></div>
+<div class="tagsEntry">Tags: <input #bTags></div>
+<div class="submitEntry">
+  <button (click)="addBook(
+  bId.value, bAuthor.value, bImgUrl.value, bType.value, bTitle.value, bBody.value, bTags.value)">Add Book</button>
+</div>
+<br><br>
