@@ -10,53 +10,46 @@ export class CreateContentComponent implements OnInit {
 
   @Output() newBookEvent = new EventEmitter<Content>();
   newBookItem: any;
+  id: any;
+  author: any;
+  imgUrl: any;
+  type: any;
+  title: any;
+  body: any;
+  tags: any;
+  msg: any;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  addBook(id: string, author: string, imgUrl: string, type: string, title: string, body: string, tags: string) {
-    let idNum = 0
-    let validItem = true;
-
+  addBook() {
     let createBookPromise = new Promise((success, fail) => {
-      let testPass = true;
-
       // Check if required fields are empty or couldn't parse id number
-      if(author.length == 0 || title.length == 0 || body.length == 0 || !parseInt(id)) {
-        testPass = false;
-      } else {
-        idNum = parseInt(id); // Convert to number
-      }
-
-      if(testPass) {
+      if(parseInt(this.id) && this.author && this.title && this.body) {
+        this.newBookEvent.emit({
+          id: parseInt(this.id),
+          author: this.author,
+          imgUrl: this.imgUrl,
+          type: this.type,
+          title: this.title,
+          body: this.body,
+          tags: this.tags.split(",")
+        });
         success("Book addition was successful.");
       } else {
         fail("Book addition has failed");
       }
     })
 
-    createBookPromise.then(function (successResult) {
-      console.clear(); // Clear console if success
-      console.log(successResult);
+    createBookPromise.then((successResult) => {
+      this.msg = "";
+      console.log(successResult)
     }).catch(failResult => {
-      validItem = false;
-      console.log(failResult);
+      this.msg = failResult;
+      console.log(failResult)
     })
-
-    // If a valid item was entered, pass it to the event
-    if(validItem) {
-      this.newBookItem = {
-        id: idNum,
-        author: author,
-        imgUrl: imgUrl,
-        type: type,
-        title: title,
-        body: body,
-        tags: tags.split(",")
-      };
-      this.newBookEvent.emit(this.newBookItem);
-    }
   }
 }
