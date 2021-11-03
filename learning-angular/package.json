@@ -9,7 +9,8 @@
     "test": "ng test",
     "gc": "ng g component",
     "gp": "ng g pipe",
-    "gd": "ng g directive"
+    "gd": "ng g directive",
+    "gs": "ng g service"
   },
   "private": true,
   "dependencies": {
