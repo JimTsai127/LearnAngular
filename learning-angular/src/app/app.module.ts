@@ -9,6 +9,7 @@ import { MatchesStringPipe } from './matches-string.pipe';
 import { HoverStyleDirective } from './hover-style.directive';
 import { BorderHoverStyleDirective } from './border-hover-style.directive';
 import { MessagesComponent } from './messages/messages.component';
+import { CreateComponentComponent } from './create-component/create-component.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MessagesComponent } from './messages/messages.component';
     MatchesStringPipe,
     HoverStyleDirective,
     BorderHoverStyleDirective,
-    MessagesComponent
+    MessagesComponent,
+    CreateComponentComponent
   ],
   imports: [
     BrowserModule,
