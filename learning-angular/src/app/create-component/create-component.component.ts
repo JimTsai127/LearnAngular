@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Content} from "../helper-files/content-interface";
 
 @Component({
   selector: 'app-create-component',
@@ -7,9 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponentComponent implements OnInit {
 
+  @Output() newBookEvent = new EventEmitter<Content>();
+  newBookItem: any;
+  id: any;
+  author: any;
+  imgUrl: any;
+  type: any;
+  title: any;
+  body: any;
+  tags: any;
+  msg: any;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  add() {
+    // Check if required fields are empty or couldn't parse id number
+    if(parseInt(this.id) && this.author && this.title && this.body) {
+      this.newBookEvent.emit({
+        id: parseInt(this.id),
+        author: this.author,
+        imgUrl: this.imgUrl,
+        type: this.type,
+        title: this.title,
+        body: this.body,
+        tags: this.tags.split(",")
+      });
+    }
+  }
 }

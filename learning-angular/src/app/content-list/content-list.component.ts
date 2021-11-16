@@ -12,11 +12,10 @@ export class ContentListComponent implements OnInit {
   public item: any; // Stores the user's search item
 
   constructor(private contentService: ContentService) {
-    this.item = "";
   }
 
   ngOnInit(): void {
-    this.contentService.getContentObs().subscribe(
+    this.contentService.getContent().subscribe(
       contentArray => this.contentArray = contentArray
     );
   }
@@ -32,5 +31,20 @@ export class ContentListComponent implements OnInit {
         alert("Sorry, no book containing " + '"' + this.item + '"' + " could be found");
       }
     }
+  }
+
+  // Adds a new book item to the list
+  // addBookToList(newBookFromChild: Content): void {
+  //   this.contentArray.push(newBookFromChild);
+  //   // Clone array for list to update
+  //   this.contentArray = [...this.contentArray];
+  // }
+
+  save(newBookFromChild: Content): void {
+    this.contentService.addContent(newBookFromChild).subscribe(
+      content => {
+        this.contentArray.push(content);
+        this.contentArray = [...this.contentArray];
+      });
   }
 }

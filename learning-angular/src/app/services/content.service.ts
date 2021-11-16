@@ -3,21 +3,27 @@ import {Content} from "../helper-files/content-interface";
 import {CONTENT} from "../helper-files/contentDb";
 import {Observable, of} from "rxjs";
 import { MessageService } from "../message.service";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContentService {
 
-  constructor(private messageService: MessageService) { }
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json'
+    })
+  };
 
-  getContent(): Content[] {
-    return CONTENT;
+  constructor(private http: HttpClient, private messageService: MessageService) { }
+
+  getContent(): Observable<Content[]> {
+    return this.http.get<Content[]>("api/content");
   }
 
-  getContentObs(): Observable<Content[]> {
-    const books = of(CONTENT);
-    this.messageService.add('Content retrieved!');
-    return books;
+  addContent(content: Content): Observable<Content> {
+    this.messageService.add('Content added!');
+    return this.http.post<Content>("api/content", content, this.httpOptions);
   }
 }

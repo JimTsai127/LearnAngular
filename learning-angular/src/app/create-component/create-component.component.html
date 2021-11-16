@@ -1,1 +1,12 @@
-<p>create-component works!</p>
+<div class="idEntry">Id: (integer)<br><input [(ngModel)]="id"></div>
+<div class="authorEntry">Author: <br><input [(ngModel)]="author"></div>
+<div class="imgUrlEntry">Image URL: <br><input [(ngModel)]="imgUrl"></div>
+<div class="typeEntry">Type (Hardcover or Paperback): <br><input [(ngModel)]="type"></div>
+<div class="titleEntry">Title: <br><input [(ngModel)]="title"></div>
+<div class="bodyEntry">Description: <br><input [(ngModel)]="body"></div>
+<div class="tagsEntry">Tags (comma-separated values): <br><input [(ngModel)]="tags"></div>
+<div class="submitEntry">
+  <button (click)="add()">Add Book</button>
+</div>
+<div [(ngModel)]="msg" [innerHTML]="msg"></div>
+<br><br>
