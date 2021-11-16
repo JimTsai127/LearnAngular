@@ -12,6 +12,7 @@ export class ContentListComponent implements OnInit {
   public item: any; // Stores the user's search item
 
   constructor(private contentService: ContentService) {
+    this.item = "";
   }
 
   ngOnInit(): void {
@@ -34,12 +35,6 @@ export class ContentListComponent implements OnInit {
   }
 
   // Adds a new book item to the list
-  // addBookToList(newBookFromChild: Content): void {
-  //   this.contentArray.push(newBookFromChild);
-  //   // Clone array for list to update
-  //   this.contentArray = [...this.contentArray];
-  // }
-
   save(newBookFromChild: Content): void {
     this.contentService.addContent(newBookFromChild).subscribe(
       content => {
