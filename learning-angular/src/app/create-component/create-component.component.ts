@@ -26,9 +26,8 @@ export class CreateComponentComponent implements OnInit {
 
   add() {
     // Check if required fields are empty or couldn't parse id number
-    if(parseInt(this.id) && this.author && this.title && this.body) {
+    if(this.author && this.title && this.body) {
       this.newBookEvent.emit({
-        id: parseInt(this.id),
         author: this.author,
         imgUrl: this.imgUrl,
         type: this.type,
