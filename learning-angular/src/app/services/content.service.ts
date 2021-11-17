@@ -22,8 +22,12 @@ export class ContentService {
   }
 
   addContent(content: Content): Observable<Content> {
-    var observableContent = this.http.post<Content>("api/content", content, this.httpOptions);
     this.messageService.add('Content added!');
-    return observableContent
+    return this.http.post<Content>("api/content", content, this.httpOptions);
+  }
+
+  updateContent(content: Content): Observable<Content> {
+    this.messageService.add('Content updated!');
+    return this.http.put<Content>("api/content", content, this.httpOptions);
   }
 }
