@@ -1,4 +1,4 @@
-<app-create-component (newBookEvent)="save($event)"></app-create-component>
+<app-create-component (newBookEvent)="save($event)" (updateBookEvent)="modify($event)"></app-create-component>
 
 <div class="itemFinder">
   Title: <input [(ngModel)]="item">

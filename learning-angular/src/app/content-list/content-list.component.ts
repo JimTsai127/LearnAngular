@@ -42,4 +42,10 @@ export class ContentListComponent implements OnInit {
         this.contentArray = [...this.contentArray];
       });
   }
+
+  modify(newBook: Content): void {
+    let bookIndex = this.contentArray.map(e => e.id).indexOf(newBook.id)
+    this.contentArray[bookIndex] = newBook;
+    this.contentArray = [...this.contentArray];
+  }
 }
