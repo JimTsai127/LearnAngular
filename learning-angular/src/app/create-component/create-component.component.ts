@@ -43,9 +43,16 @@ export class CreateComponentComponent implements OnInit {
   update(): void {
     this.newBook.tags = this.tempTags.split(",");
     this.newBook.id = parseInt(this.tempId);
-    this.contentService.addContent(this.newBook).subscribe(() => {
+    this.contentService.updateContent(this.newBook).subscribe(() => {
       this.messageService.add("Updated content at id: " + this.newBook.id);
+      this.tempTags = "";
+      this.tempId = "";
       this.updateBookEvent.emit(this.newBook);
+      this.newBook = {
+        author: '',
+        title: '',
+        body: ''
+      }
     });
   }
 }
