@@ -9,7 +9,7 @@ import { MatchesStringPipe } from './matches-string.pipe';
 import { HoverStyleDirective } from './hover-style.directive';
 import { BorderHoverStyleDirective } from './border-hover-style.directive';
 import { MessagesComponent } from './messages/messages.component';
-import { CreateComponentComponent } from './create-component/create-component.component';
+import {CreateComponentComponent, CreateDialog} from './create-component/create-component.component';
 import {HttpClientModule} from "@angular/common/http";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from "./in-memory-data.service";
@@ -18,6 +18,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatChipsModule} from "@angular/material/chips";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {MatChipsModule} from "@angular/material/chips";
     HoverStyleDirective,
     BorderHoverStyleDirective,
     MessagesComponent,
-    CreateComponentComponent
+    CreateComponentComponent,
+    CreateDialog
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import {MatChipsModule} from "@angular/material/chips";
     MatInputModule,
     MatDividerModule,
     MatChipsModule,
+    MatDialogModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false,

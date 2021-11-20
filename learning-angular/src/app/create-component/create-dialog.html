@@ -1,0 +1,35 @@
+<div mat-dialog-content>
+<!--  <mat-form-field>-->
+<!--    <div class="idEntry"><mat-label>Id:</mat-label><input matInput placeholder="integer" [(ngModel)]="tempId"></div>-->
+<!--  </mat-form-field>-->
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <div class="authorEntry"><mat-label>Author:</mat-label><input matInput placeholder="" [(ngModel)]="newBook.author"></div>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <div class="imgUrlEntry"><mat-label>Image URL:</mat-label><input matInput placeholder="" [(ngModel)]="newBook.imgUrl"></div>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <div class="typeEntry"><mat-label>Type:</mat-label><input matInput placeholder="Hardcover / Paperback" [(ngModel)]="newBook.type"></div>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <div class="titleEntry"><mat-label>Title:</mat-label><input matInput placeholder="" [(ngModel)]="newBook.title"></div>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <div class="bodyEntry"><mat-label>Description:</mat-label><input matInput placeholder="" [(ngModel)]="newBook.body"></div>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <div class="tagsEntry"><mat-label>Tags:</mat-label><input matInput placeholder="comma separated values" [(ngModel)]="tempTags"></div>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Add Book</button>
+</div>

@@ -1,34 +1,6 @@
-<mat-form-field>
-  <div class="idEntry"><mat-label>Id:</mat-label><input matInput placeholder="integer" [(ngModel)]="tempId"></div>
-</mat-form-field>
-  <mat-divider></mat-divider>
-<mat-form-field>
-  <div class="authorEntry"><mat-label>Author:</mat-label><input matInput placeholder="" [(ngModel)]="newBook.author"></div>
-</mat-form-field>
-  <mat-divider></mat-divider>
-<mat-form-field>
-  <div class="imgUrlEntry"><mat-label>Image URL:</mat-label><input matInput placeholder="" [(ngModel)]="newBook.imgUrl"></div>
-</mat-form-field>
-  <mat-divider></mat-divider>
-<mat-form-field>
-  <div class="typeEntry"><mat-label>Type:</mat-label><input matInput placeholder="Hardcover / Paperback" [(ngModel)]="newBook.type"></div>
-</mat-form-field>
-  <mat-divider></mat-divider>
-<mat-form-field>
-  <div class="titleEntry"><mat-label>Title:</mat-label><input matInput placeholder="" [(ngModel)]="newBook.title"></div>
-</mat-form-field>
-  <mat-divider></mat-divider>
-<mat-form-field>
-  <div class="bodyEntry"><mat-label>Description:</mat-label><input matInput placeholder="" [(ngModel)]="newBook.body"></div>
-</mat-form-field>
-  <mat-divider></mat-divider>
-<mat-form-field>
-  <div class="tagsEntry"><mat-label>Tags:</mat-label><input matInput placeholder="comma separated values" [(ngModel)]="tempTags"></div>
-</mat-form-field>
-  <mat-divider></mat-divider>
 <div class="submitEntry">
-  <button mat-raised-button color="primary" (click)="add()">Add Book</button>
-  <button mat-raised-button color="accent" (click)="update()">Update Book</button>
+  <button mat-raised-button color="primary" (click)="openDialog()">Add Content</button>
 </div>
+
 <div [(ngModel)]="msg" [innerHTML]="msg"></div>
 <br>

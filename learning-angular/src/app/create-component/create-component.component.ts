@@ -1,7 +1,8 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Inject} from '@angular/core';
 import {Content} from "../helper-files/content-interface";
 import {ContentService} from "../services/content.service";
 import {MessageService} from "../message.service";
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-create-component',
@@ -12,13 +13,13 @@ export class CreateComponentComponent implements OnInit {
 
   @Output() newBookEvent = new EventEmitter<Content>();
   @Output() updateBookEvent = new EventEmitter<Content>();
-
+  
   newBook: Content;
   msg: any;
   tempTags = "";
   tempId = "";
 
-  constructor(private contentService: ContentService, private messageService: MessageService) {
+  constructor(private contentService: ContentService, private messageService: MessageService, public dialog: MatDialog) {
     this.newBook = {
       author: '',
       title: '',
@@ -27,6 +28,19 @@ export class CreateComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CreateDialog, {
+      height: '620px',
+      width: '600px',
+      data: {author: this.newBook.author, imgUrl: this.newBook.imgUrl, type: this.newBook.type, title: this.newBook.title, body: this.newBook.body, tags: this.newBook.tags}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.animal = result;
+      this.add();
+    });
   }
 
   add(): void {
@@ -56,3 +70,28 @@ export class CreateComponentComponent implements OnInit {
     });
   }
 }
+
+@Component({
+  selector: 'create-dialog',
+  templateUrl: './create-dialog.html'
+})
+export class CreateDialog {
+  newBook: Content;
+  tempTags = "";
+  tempId = "";
+
+  constructor(
+    public dialogRef: MatDialogRef<CreateDialog>,
+              @Inject(MAT_DIALOG_DATA) public data: Content) {
+    this.newBook = {
+      author: '',
+      title: '',
+      body: ''
+    };
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
