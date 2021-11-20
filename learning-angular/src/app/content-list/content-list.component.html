@@ -1,9 +1,12 @@
 <app-create-component (newBookEvent)="save($event)" (updateBookEvent)="modify($event)"></app-create-component>
 
 <div class="itemFinder">
-  Title: <input [(ngModel)]="item">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="title" [(ngModel)]="item">
+  </mat-form-field>
   <br>
-  <button (click)="onFindItem();">
+  <button mat-raised-button color="primary" (click)="onFindItem();">
     Search for Book
   </button>
 </div>

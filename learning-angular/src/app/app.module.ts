@@ -13,6 +13,12 @@ import { CreateComponentComponent } from './create-component/create-component.co
 import {HttpClientModule} from "@angular/common/http";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from "./in-memory-data.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatChipsModule} from "@angular/material/chips";
+
 
 @NgModule({
   declarations: [
@@ -28,10 +34,15 @@ import {InMemoryDataService} from "./in-memory-data.service";
   imports: [
     BrowserModule,
     FormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDividerModule,
+    MatChipsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false,
-        delay: 1000 })
+        delay: 1000 }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

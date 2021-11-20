@@ -6,7 +6,7 @@ import {MessageService} from "../message.service";
 @Component({
   selector: 'app-create-component',
   templateUrl: './create-component.component.html',
-  styleUrls: ['./create-component.component.css']
+  styleUrls: ['./create-component.component.scss']
 })
 export class CreateComponentComponent implements OnInit {
 
