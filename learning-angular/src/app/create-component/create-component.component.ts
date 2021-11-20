@@ -31,6 +31,12 @@ export class CreateComponentComponent implements OnInit {
   }
 
   openDialog(): void {
+    this.newBook = {
+      author: '',
+      title: '',
+      body: ''
+    };
+
     const dialogRef = this.dialog.open(CreateDialog, {
       height: '620px',
       width: '600px',
@@ -38,8 +44,10 @@ export class CreateComponentComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.newBook = result;
-      this.add();
+      if(result) { // Make sure data was entered
+        this.newBook = result;
+        this.add();
+      }
     });
   }
 
