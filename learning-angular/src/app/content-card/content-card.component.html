@@ -2,8 +2,10 @@
 <div class="author">By: {{ content.author }}</div>
 <div class="tags" *ngIf="content.tags">
   Genres:
-  <mat-chip-list class="tag" *ngFor="let tag of content.tags;">
-    <mat-chip color="primary" selected appHoverStyle hstyle='bold'>{{ tag }}</mat-chip>
+  <mat-chip-list class="tag">
+    <mat-chip *ngFor="let tag of content.tags;" color="primary" selected appHoverStyle hstyle='bold'>
+      {{ tag }}
+    </mat-chip>
   </mat-chip-list>
 </div>
 <div class="imageDiv" [ngSwitch]="content.imgUrl != null">

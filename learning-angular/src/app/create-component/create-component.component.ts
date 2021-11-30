@@ -16,8 +16,7 @@ export class CreateComponentComponent implements OnInit {
 
   newBook: Content;
   msg: any;
-  tempTags = "";
-  tempId = "";
+
 
   constructor(private contentService: ContentService, private messageService: MessageService, public dialog: MatDialog) {
     this.newBook = {
@@ -31,52 +30,28 @@ export class CreateComponentComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.newBook = {
-      author: '',
-      title: '',
-      body: ''
-    };
-
     const dialogRef = this.dialog.open(CreateDialog, {
       height: '620px',
       width: '600px',
-      data: {author: this.newBook.author, imgUrl: this.newBook.imgUrl, type: this.newBook.type, title: this.newBook.title, body: this.newBook.body, tags: this.tempTags}
+      data: this.newBook
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result) { // Make sure data was entered
-        this.newBook = result;
-        this.add();
+      if(isNaN(result.id)) { // No ID means add
+        this.newBookEvent.emit(result);
+      } else { // ID means user wants to update
+        this.updateBookEvent.emit(result);
       }
-    });
-  }
 
-  add(): void {
-    // Check if required fields are empty
-    // if(this.newBook.author && this.newBook.title && this.newBook.body) {
-      this.newBook.tags = this.tempTags.split(",");
-      this.contentService.addContent(this.newBook).subscribe(newBookItem => {
-        this.messageService.add("Added content has an id of: " + newBookItem.id);
-        this.newBookEvent.emit(this.newBook);
-      })
-    // }
-  }
-
-  update(): void {
-    this.newBook.tags = this.tempTags.split(",");
-    this.newBook.id = parseInt(this.tempId);
-    this.contentService.updateContent(this.newBook).subscribe(() => {
-      this.messageService.add("Updated content at id: " + this.newBook.id);
-      this.tempTags = "";
-      this.tempId = "";
-      this.updateBookEvent.emit(this.newBook);
       this.newBook = {
         author: '',
         title: '',
         body: ''
-      }
+      };
     });
   }
+
+
 }
 
 @Component({
@@ -84,13 +59,46 @@ export class CreateComponentComponent implements OnInit {
   templateUrl: './create-dialog.html'
 })
 export class CreateDialog {
+  tempTags = "";
+  tempId = "";
+
   constructor(
     public dialogRef: MatDialogRef<CreateDialog>,
-              @Inject(MAT_DIALOG_DATA) public data: Content) {
+              @Inject(MAT_DIALOG_DATA) public data: Content, private contentService: ContentService, private messageService: MessageService) {
   }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  add(): void {
+    this.data.tags = this.tempTags.split(",");
+    this.contentService.addContent(this.data).subscribe(newBookItem => {
+      this.messageService.add("Added content has an id of: " + newBookItem.id);
+      this.data = {
+        author: '',
+        title: '',
+        body: '',
+      };
+      this.tempTags = "";
+    })
+  }
+
+  update(): void {
+    this.data.tags = this.tempTags.split(",");
+    this.data.id = parseInt(this.tempId);
+    this.dialogRef.close(this.data);
+    this.contentService.updateContent(this.data).subscribe(() => {
+      this.messageService.add("Updated content at id: " + this.data.id);
+      this.tempTags = "";
+      this.tempId = "";
+
+      this.data = {
+        author: '',
+        title: '',
+        body: ''
+      }
+    });
   }
 }
 
