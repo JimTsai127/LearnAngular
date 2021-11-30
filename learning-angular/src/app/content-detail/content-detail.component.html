@@ -1,1 +1,16 @@
-<p>content-detail works!</p>
+<div *ngIf="bookContent.id != null">
+  <img class="imageDiv" [src]="bookContent.imgUrl">
+  <div [style.color]="'royalblue'">
+    <span appHoverStyle hstyle="bold"> The ID is {{ bookContent.id }} </span>
+  </div>
+
+  <div class="name">
+    {{ bookContent.author }}
+  </div>
+
+  <div class="description">
+    {{ bookContent.body }}
+  </div>
+</div>
+
+<a routerLink="/content" routerLinkActive="active">Go Back to Content List</a>
