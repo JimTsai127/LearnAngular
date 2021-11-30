@@ -1,2 +1,9 @@
-<app-messages></app-messages>
-<app-content-list></app-content-list>
+<!--<app-messages></app-messages>-->
+<!--<app-content-list></app-content-list>-->
+
+<a routerLink="content" routerLinkActive="active">Content
+  List</a><br>
+<!--<a [routerLink]="['/content', content.id]" routerLinkActive="active">Content Detail</a><br>-->
+<!--<a routerLink="thiswillnotwork"-->
+<!--   routerLinkActive="active">Invalid page link</a><br>-->
+<router-outlet></router-outlet>

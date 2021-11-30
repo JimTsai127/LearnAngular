@@ -18,4 +18,4 @@
 </div>
 <div class="body">Summary: {{ content.body }}</div>
 <div class="type" *ngIf="content.type">Type: {{ content.type }}</div>
-
+<div class="link"><a [routerLink]="['/content', content.id]" routerLinkActive="active">Details</a></div>
