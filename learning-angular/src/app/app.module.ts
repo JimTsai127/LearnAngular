@@ -53,8 +53,7 @@ import {RouterModule} from "@angular/router";
     BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: 'content/:id', component: ContentDetailComponent },
-      { path: 'content', component: ContentListComponent },
-      { path: '', component: AppComponent },
+      { path: '', component: ContentListComponent },
       { path: '**', component: NotFoundComponent }
     ])
   ],
