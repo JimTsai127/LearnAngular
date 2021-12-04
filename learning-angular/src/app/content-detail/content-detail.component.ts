@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Content} from "../helper-files/content-interface";
 import {ActivatedRoute} from "@angular/router";
 import {ContentService} from "../services/content.service";
+import {LogUpdateService} from "../log-update.service";
 
 @Component({
   selector: 'app-content-detail',

@@ -22,6 +22,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { ContentDetailComponent } from './content-detail/content-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {RouterModule} from "@angular/router";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -56,7 +58,13 @@ import {RouterModule} from "@angular/router";
       { path: 'content', component: ContentListComponent },
       { path: '', component: AppComponent },
       { path: '**', component: NotFoundComponent }
-    ])
+    ]),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
