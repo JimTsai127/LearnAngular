@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LogUpdateService} from "./log-update.service";
+import {ContentService} from "./services/content.service";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import {LogUpdateService} from "./log-update.service";
 })
 
 export class AppComponent implements OnInit {
-  constructor(private logService: LogUpdateService) {
+  constructor(private contentService: ContentService, private logService: LogUpdateService) {
   }
 
   public ngOnInit(): void {
