@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
 import {SwUpdate} from "@angular/service-worker";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogUpdateService {
 
-  constructor(updates: SwUpdate) {
+  constructor(updates: SwUpdate, private _snackBar: MatSnackBar) {
     updates.available.subscribe(event => {
-      //displays current hash
-      console.log('current version is', event.current);
-      //displays new available hash
-      console.log('available version is', event.available);
+      this._snackBar.open("An update is available!");
     });
     updates.activated.subscribe(event => {
-      console.log('old version was', event.previous);
-      console.log('new version is', event.current);
+      this._snackBar.open("An update has been applied!");
     });
-
   }
 }

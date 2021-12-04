@@ -24,6 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import {RouterModule} from "@angular/router";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { environment } from '../environments/environment';
     MatDividerModule,
     MatChipsModule,
     MatDialogModule,
+    MatSnackBarModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false,

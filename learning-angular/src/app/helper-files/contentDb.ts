@@ -41,8 +41,8 @@ export const CONTENT: Content[] = [{
   tags: ["fantasy", "magic"]
 }, {
   id: 5,
-  author: "Unknown",
+  author: "Testing Updates",
   type: "Hardcover",
-  title: "Inkspell",
-  body: "Duplicate"
+  title: "Test",
+  body: "Testing123"
 }];
